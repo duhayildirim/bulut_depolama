@@ -433,12 +433,12 @@
   position: fixed;
   top: -1px;
   left: 0;
-  background: #000;
+  background: #37517e;
   will-change: opacity;
 }
 
 .glightbox-mobile .goverlay {
-  background: #000;
+  background: #37517e;
 }
 
 .gprev,
@@ -528,7 +528,7 @@ iframe.wait-autoplay {
 }
 
 .glightbox-clean .gslide-video {
-  background: #000;
+  background: #37517e;
 }
 
 .glightbox-clean .gprev,
@@ -937,6 +937,6 @@ iframe.wait-autoplay {
 
 @media screen and (max-height: 420px) {
   .goverlay {
-    background: #000;
+    background: #37517e;
   }
 }

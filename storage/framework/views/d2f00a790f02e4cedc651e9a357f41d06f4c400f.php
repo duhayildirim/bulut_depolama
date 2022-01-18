@@ -1,0 +1,1 @@
+<?php /**PATH C:\Users\PC\Documents\Github\bulut_depolama\vendor\laravel\jetstream\src/../resources/views/components/welcome.blade.php ENDPATH**/ ?>
