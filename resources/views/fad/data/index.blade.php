@@ -204,16 +204,16 @@
         <div class="main-panel">
             <div class="content-wrapper pb-0">
                 <div class="page-header flex-wrap">
-                    <h3 class="mb-0"> KLASÖRLER <small>(verilerini gruplara ayır)</small>
+                    <h3 class="mb-0"> KLASÖR ADI
                     </h3>
-                    <button style="float: right" type="button" class="btn btn-primary btn-rounded btn-fw" data-toggle="modal" data-target="#exampleModalCenter"> + Yeni Klasör </button>
+                    <button style="float: right" type="button" class="btn btn-primary btn-rounded btn-fw" data-toggle="modal" data-target="#exampleModalCenter"> + Yeni </button>
                 </div>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Yeni Dosya</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Yeni Veri</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -221,18 +221,14 @@
                             <div class="modal-body">
                                 <form class="forms-sample">
                                     <div class="form-group">
-                                        <label for="exampleInputName1">Dosya Adı:</label>
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="İş" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleTextarea1">Açıklaması:</label>
-                                        <textarea
-                                            class="form-control"
-                                            id="exampleTextarea1"
-                                            rows="3"
-                                        ></textarea>
+                                        <label for="exampleInputName1">Adı:</label>
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Dilerseniz dosyanın adını kendiniz belirleyin" />
                                     </div>
                                 </form>
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Yükle/Sürükle Bırak</label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
@@ -244,69 +240,76 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Klasörler</h4>
-                            <p class="card-description">Klasörler oluşturarak içine veriler yükleyebilir. Düzenli bir akış oluşturabilirsin.</p>
+                            <h4 class="card-title">Klasör Adı</h4>
+                            <p class="card-description">Bu klasörde bulunan tüm verileriniz.</p>
                             <div class="row">
                                 <div class="col-xl-3 col-lg-3">
                                     <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">
+                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/mp3.png" alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">Dosya Adı</h5>
-                                            <a href="{{route('fad.data.index')}}" type="button" class="btn btn-success"> Dosyayı Aç</a>
+                                            <a href="{{route('fad.data.index')}}" type="button" class="btn btn-success"> İndir</a>
+                                            <a type="button" class="btn btn-danger"> Sil</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-lg-3">
                                     <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">
+                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/pdf.png" alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">Dosya Adı</h5>
-                                            <a href="{{route('fad.data.index')}}" type="button" class="btn btn-success"> Dosyayı Aç</a>
+                                            <a href="{{route('fad.data.index')}}" type="button" class="btn btn-success"> İndir</a>
+                                            <a type="button" class="btn btn-danger"> Sil</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-lg-3">
                                     <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">
+                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/text.png" alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">Dosya Adı</h5>
-                                            <a type="button" class="btn btn-success"> Dosyayı Aç</a>
+                                            <a type="button" class="btn btn-success"> İndir</a>
+                                            <a type="button" class="btn btn-danger"> Sil</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-lg-3">
                                     <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">
+                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/video.png" alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">Dosya Adı</h5>
-                                            <a type="button" class="btn btn-success"> Dosyayı Aç</a>
+                                            <a type="button" class="btn btn-success"> İndir</a>
+                                            <a type="button" class="btn btn-danger"> Sil</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-lg-3">
                                     <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">
+                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/mp3.png" alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">Dosya Adı</h5>
-                                            <a type="button" class="btn btn-success"> Dosyayı Aç</a>
+                                            <a type="button" class="btn btn-success"> İndir</a>
+                                            <a type="button" class="btn btn-danger"> Sil</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-lg-3">
                                     <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">
+                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/text.png" alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">Dosya Adı</h5>
-                                            <a type="button" class="btn btn-success"> Dosyayı Aç</a>
+                                            <a type="button" class="btn btn-success"> İndir</a>
+                                            <a type="button" class="btn btn-danger"> Sil</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-lg-3">
                                     <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">
+                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/excel.png" alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">Dosya Adı</h5>
-                                           <a type="button" class="btn btn-success"> Dosyayı Aç</a>
+                                            <a type="button" class="btn btn-success"> İndir</a>
+                                            <a type="button" class="btn btn-danger"> Sil</a>
                                         </div>
                                     </div>
                                 </div>
@@ -357,3 +360,4 @@
 <!-- End custom js for this page -->
 </body>
 </html>
+

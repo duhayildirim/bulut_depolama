@@ -23,7 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::prefix('panel')->middleware(['auth:sanctum', 'verified'])->group(function (){
-    Route::get('/veriler',[\App\Http\Controllers\FolderAndDataController::class ,'FolderIndex'])->name('fad.folder.index');
+    Route::get('/dosyalar',[\App\Http\Controllers\FolderAndDataController::class ,'FolderIndex'])->name('fad.folder.index');
+    Route::get('/veriler',[\App\Http\Controllers\FolderAndDataController::class ,'DataIndex'])->name('fad.data.index');
 });
 
 

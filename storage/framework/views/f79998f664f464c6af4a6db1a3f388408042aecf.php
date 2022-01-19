@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,37 +28,37 @@
                         <!--change to offline or busy as needed-->
                     </div>
                     <div class="nav-profile-text d-flex flex-column pr-3">
-                        <span class="font-weight-medium mb-2">Kullanıcı Adı</span>
+                        <span class="font-weight-medium mb-2"><?php echo e(Auth::user()->name); ?></span>
                         <span class="font-weight-normal">Demo Paket</span>
                     </div>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<?php echo e(url('/dashboard')); ?>">
                     <i class="mdi mdi-home menu-icon"></i>
                     <span class="menu-title">Anasayfa</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<?php echo e(route('fad.folder.index')); ?>">
                     <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                     <span class="menu-title">Veriler</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pages/icons/mdi.html">
+                <a class="nav-link" href="#">
                     <i class="mdi mdi-contacts menu-icon"></i>
                     <span class="menu-title">Erişim</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pages/charts/chartjs.html">
+                <a class="nav-link" href="#">
                     <i class="mdi mdi-chart-bar menu-icon"></i>
                     <span class="menu-title">İstatistiklerim</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pages/tables/basic-table.html">
+                <a class="nav-link" href="#">
                     <i class="mdi mdi-table-large menu-icon"></i>
                     <span class="menu-title">Tablolar</span>
                 </a>
@@ -196,13 +181,18 @@
                     <li class="nav-item nav-profile dropdown border-0">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
                             <img class="nav-profile-img mr-2" alt="" src="<?php echo e(asset('panel')); ?>/assets/images/faces/face1.jpg" />
-                            <span class="profile-name">Kullanıcı Adı</span>
+                            <span class="profile-name"><?php echo e(Auth::user()->name); ?></span>
                         </a>
                         <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="<?php echo e(route('profile.show')); ?>">
                                 <i class="mdi mdi-cached mr-2 text-success"></i> Profil </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="mdi mdi-logout mr-2 text-primary"></i> Çıkış Yap </a>
+                            <form method="POST" action="<?php echo e(route('logout')); ?>" >
+                                <?php echo csrf_field(); ?>
+                                <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
+                                                     onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    <i class="mdi mdi-logout mr-2 text-primary"></i> Çıkış Yap </a>
+                            </form>
                         </div>
                     </li>
                 </ul>
@@ -214,7 +204,7 @@
         <div class="main-panel">
             <div class="content-wrapper pb-0">
                 <div class="page-header flex-wrap">
-                    <h3 class="mb-0"> Hoşgeldin, Kullanıcı Adı <span class="pl-0 h6 pl-sm-2 text-muted d-inline-block">Verilerin bizimle güvende; dilediğin zaman, dilediğin yerden erişim sağlayabilirsin.</span>
+                    <h3 class="mb-0"> Hoşgeldin, <?php echo e(Auth::user()->name); ?> <span class="pl-0 h6 pl-sm-2 text-muted d-inline-block">Verilerin bizimle güvende; dilediğin zaman, dilediğin yerden erişim sağlayabilirsin.</span>
                     </h3>
                 </div>
                 <div class="row">
