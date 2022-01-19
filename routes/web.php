@@ -21,4 +21,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 
 })->name('dashboard');
-//Route::get('/',[::class ,'index'])->name('back.announcements');
+
+Route::prefix('panel')->middleware(['auth:sanctum', 'verified'])->group(function (){
+    Route::get('/veriler',[\App\Http\Controllers\FolderAndDataController::class ,'FolderIndex'])->name('fad.folder.index');
+});
+
+
