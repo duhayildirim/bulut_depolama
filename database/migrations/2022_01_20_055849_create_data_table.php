@@ -15,7 +15,12 @@ class CreateDataTable extends Migration
     {
         Schema::create('data', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->integer('folder_id');
+            $table->text('url');
+            $table->text('type');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
