@@ -22,6 +22,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 })->name('dashboard');
 
+//İletişim
+Route::post('/iletisim',[\App\Http\Controllers\ContactController::class ,'create'])->name('contact.create');
+
 Route::prefix('panel')->middleware(['auth:sanctum', 'verified'])->group(function (){
 
     //Dosya klasörleme yönlendirmeleri
@@ -30,6 +33,7 @@ Route::prefix('panel')->middleware(['auth:sanctum', 'verified'])->group(function
 
     //Verilerin CRUD yönlendirmeleri
     Route::get('/veriler',[\App\Http\Controllers\FolderAndDataController::class ,'DataIndex'])->name('fad.data.index');
+
 });
 
 

@@ -321,7 +321,9 @@
                 </div>
 
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <form action="{{route('contact.create')}}" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
+                        @method('POST')
+                        @csrf
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="name">İsminiz</label>
@@ -334,16 +336,11 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Başlık</label>
-                            <input type="text" class="form-control" name="subject" id="subject" required>
+                            <input type="text" class="form-control" name="title" id="subject" required>
                         </div>
                         <div class="form-group">
                             <label for="name">Mesajınız</label>
-                            <textarea class="form-control" name="message" rows="10" required></textarea>
-                        </div>
-                        <div class="my-3">
-                            <div class="loading">Loading...</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">MESAJINIZ TARAFIMIZA İLETİLMİŞTİR!</div>
+                            <textarea class="form-control" name="description" rows="10" required></textarea>
                         </div>
                         <div class="text-center"><button type="submit">Gönder</button></div>
                     </form>
@@ -419,7 +416,7 @@
 <script src="{{asset('front')}}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="{{asset('front')}}/assets/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="{{asset('front')}}/assets/vendor/waypoints/noframework.waypoints.js"></script>
-<script src="{{asset('front')}}/assets/vendor/php-email-form/validate.js"></script>
+{{--<script src="{{asset('front')}}/assets/vendor/php-email-form/validate.js"></script>--}}
 
 <!-- Template Main JS File -->
 <script src="{{asset('front')}}/assets/js/main.js"></script>
