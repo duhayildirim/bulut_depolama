@@ -208,6 +208,13 @@
                     </h3>
                     <button style="float: right" type="button" class="btn btn-primary btn-rounded btn-fw" data-toggle="modal" data-target="#exampleModalCenter"> + Yeni </button>
                 </div>
+                @if($errors->any())
+                    <div class="alert alert-danger" >
+                        @foreach($errors->all() as $err)
+                            <li>{{$err}}</li>
+                        @endforeach
+                    </div>
+                @endif
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -218,22 +225,25 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
+                            <form action="{{route('fad.data.create')}}" method="post" role="form" enctype="multipart/form-data">
+                                @method('POST')
+                                @csrf
                             <div class="modal-body">
-                                <form class="forms-sample">
-                                    <div class="form-group">
-                                        <label for="exampleInputName1">Adı:</label>
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Dilerseniz dosyanın adını kendiniz belirleyin" />
-                                    </div>
-                                </form>
+                                <input type="hidden" class="form-control-file" value="{{$folder->id}}" name="folder_id" id="exampleFormControlFile1">
                                 <div class="form-group">
                                     <label for="exampleFormControlFile1">Yükle/Sürükle Bırak</label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" name="file" id="exampleFormControlFile1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">Dosya Adı:</label>
+                                    <input type="text" class="form-control" id="exampleInputName1" name="title" placeholder="deneme text" />
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
-                                <button type="button" class="btn btn-primary">Kaydet</button>
+                                <a type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</a>
+                                <button type="submit" class="btn btn-primary">Kaydet</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -243,76 +253,96 @@
                             <h4 class="card-title">Klasör Adı</h4>
                             <p class="card-description">Bu klasörde bulunan tüm verileriniz.</p>
                             <div class="row">
+                                @if(isset($datas))
+                                @foreach($datas as $data)
                                 <div class="col-xl-3 col-lg-3">
                                     <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/mp3.png" alt="Card image cap">
+                                        <img class="card-img-top"
+                                             @if($data -> type === 'pdf')
+                                             src="{{asset('panel')}}/assets/images/faces/pdf.png"
+                                             @elseif($data -> type === 'xls' || $data -> type === 'xlsx')
+                                             src="{{asset('panel')}}/assets/images/faces/excel.png"
+                                             @elseif($data -> type === 'doc' || $data -> type === 'docx')
+                                             src="{{asset('panel')}}/assets/images/faces/text.png"
+                                             @elseif($data -> type === 'mpeg' || $data -> type === 'mpga' || $data -> type === 'mp3' || $data -> type === 'wav')
+                                             src="{{asset('panel')}}/assets/images/faces/mp3.png"
+                                             @elseif($data -> type === 'mp4' || $data -> type === 'mov' || $data -> type === 'ogg')
+                                             src="{{asset('panel')}}/assets/images/faces/video.png"
+                                             @elseif($data -> type === 'jpg' || $data -> type === 'png' || $data -> type === 'jpeg')
+                                             src="{{asset('panel')}}/assets/images/faces/text.png"
+                                             @else
+                                             src="{{asset('panel')}}/assets/images/faces/dosya.png"
+                                             @endif
+                                             alt="Card image cap">
                                         <div class="card-body">
-                                            <h5 class="card-title">Dosya Adı</h5>
-                                            <a href="{{route('fad.data.index')}}" type="button" class="btn btn-success"> İndir</a>
+                                            <h5 class="card-title">{{$data -> url}}</h5>
+                                            <a target="_blank" href="{{URL::to('')}}{{$data -> url}}" type="button" class="btn btn-success"> Aç</a>
                                             <a type="button" class="btn btn-danger"> Sil</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-3 col-lg-3">
-                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/pdf.png" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Dosya Adı</h5>
-                                            <a href="{{route('fad.data.index')}}" type="button" class="btn btn-success"> İndir</a>
-                                            <a type="button" class="btn btn-danger"> Sil</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3">
-                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/text.png" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Dosya Adı</h5>
-                                            <a type="button" class="btn btn-success"> İndir</a>
-                                            <a type="button" class="btn btn-danger"> Sil</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3">
-                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/video.png" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Dosya Adı</h5>
-                                            <a type="button" class="btn btn-success"> İndir</a>
-                                            <a type="button" class="btn btn-danger"> Sil</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3">
-                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/mp3.png" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Dosya Adı</h5>
-                                            <a type="button" class="btn btn-success"> İndir</a>
-                                            <a type="button" class="btn btn-danger"> Sil</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3">
-                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/text.png" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Dosya Adı</h5>
-                                            <a type="button" class="btn btn-success"> İndir</a>
-                                            <a type="button" class="btn btn-danger"> Sil</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-3">
-                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/excel.png" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Dosya Adı</h5>
-                                            <a type="button" class="btn btn-success"> İndir</a>
-                                            <a type="button" class="btn btn-danger"> Sil</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+                                @endif
+{{--                                <div class="col-xl-3 col-lg-3">--}}
+{{--                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">--}}
+{{--                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/pdf.png" alt="Card image cap">--}}
+{{--                                        <div class="card-body">--}}
+{{--                                            <h5 class="card-title">Dosya Adı</h5>--}}
+{{--                                            <a href="{{route('fad.data.index')}}" type="button" class="btn btn-success"> İndir</a>--}}
+{{--                                            <a type="button" class="btn btn-danger"> Sil</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-xl-3 col-lg-3">--}}
+{{--                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">--}}
+{{--                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/text.png" alt="Card image cap">--}}
+{{--                                        <div class="card-body">--}}
+{{--                                            <h5 class="card-title">Dosya Adı</h5>--}}
+{{--                                            <a type="button" class="btn btn-success"> İndir</a>--}}
+{{--                                            <a type="button" class="btn btn-danger"> Sil</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-xl-3 col-lg-3">--}}
+{{--                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">--}}
+{{--                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/video.png" alt="Card image cap">--}}
+{{--                                        <div class="card-body">--}}
+{{--                                            <h5 class="card-title">Dosya Adı</h5>--}}
+{{--                                            <a type="button" class="btn btn-success"> İndir</a>--}}
+{{--                                            <a type="button" class="btn btn-danger"> Sil</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-xl-3 col-lg-3">--}}
+{{--                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">--}}
+{{--                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/mp3.png" alt="Card image cap">--}}
+{{--                                        <div class="card-body">--}}
+{{--                                            <h5 class="card-title">Dosya Adı</h5>--}}
+{{--                                            <a type="button" class="btn btn-success"> İndir</a>--}}
+{{--                                            <a type="button" class="btn btn-danger"> Sil</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-xl-3 col-lg-3">--}}
+{{--                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">--}}
+{{--                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/text.png" alt="Card image cap">--}}
+{{--                                        <div class="card-body">--}}
+{{--                                            <h5 class="card-title">Dosya Adı</h5>--}}
+{{--                                            <a type="button" class="btn btn-success"> İndir</a>--}}
+{{--                                            <a type="button" class="btn btn-danger"> Sil</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-xl-3 col-lg-3">--}}
+{{--                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">--}}
+{{--                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/excel.png" alt="Card image cap">--}}
+{{--                                        <div class="card-body">--}}
+{{--                                            <h5 class="card-title">Dosya Adı</h5>--}}
+{{--                                            <a type="button" class="btn btn-success"> İndir</a>--}}
+{{--                                            <a type="button" class="btn btn-danger"> Sil</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
 
                         </div>

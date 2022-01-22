@@ -26,14 +26,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::post('/iletisim',[\App\Http\Controllers\ContactController::class ,'create'])->name('contact.create');
 
 Route::prefix('panel')->middleware(['auth:sanctum', 'verified'])->group(function (){
-
     //Dosya klasörleme yönlendirmeleri
     Route::get('/dosyalar',[\App\Http\Controllers\FolderAndDataController::class ,'FolderIndex'])->name('fad.folder.index');
     Route::post('/dosyalar',[\App\Http\Controllers\FolderAndDataController::class ,'FolderCreate'])->name('fad.folder.create');
+    Route::get('/dosyalar/{id}',[\App\Http\Controllers\FolderAndDataController::class ,'FolderDelete'])->name('fad.folder.delete');
 
     //Verilerin CRUD yönlendirmeleri
-    Route::get('/veriler',[\App\Http\Controllers\FolderAndDataController::class ,'DataIndex'])->name('fad.data.index');
-
+    Route::get('/veri/{id}',[\App\Http\Controllers\FolderAndDataController::class ,'DataIndex'])->name('fad.data.index');
+    Route::post('/veri-kaydet',[\App\Http\Controllers\FolderAndDataController::class ,'DataCreate'])->name('fad.data.create');
+    Route::get('/veriler/{id}',[\App\Http\Controllers\FolderAndDataController::class ,'DataDelete'])->name('fad.data.delete');
 });
-
-

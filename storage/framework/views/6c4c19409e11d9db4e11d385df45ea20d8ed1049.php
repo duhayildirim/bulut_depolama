@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Panel</title>
-    <link rel="stylesheet" href="{{asset('panel')}}/assets/vendors/mdi/css/materialdesignicons.min.css" />
-    <link rel="stylesheet" href="{{asset('panel')}}/assets/vendors/flag-icon-css/css/flag-icon.min.css" />
-    <link rel="stylesheet" href="{{asset('panel')}}/assets/vendors/css/vendor.bundle.base.css" />
-    <link rel="stylesheet" href="{{asset('panel')}}/assets/vendors/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="{{asset('panel')}}/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" />
-    <link rel="stylesheet" href="{{asset('panel')}}/assets/css/style.css" />
-    <link rel="shortcut icon" href="{{asset('panel')}}/assets/images/favicon.png" />
+    <link rel="stylesheet" href="<?php echo e(asset('panel')); ?>/assets/vendors/mdi/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="<?php echo e(asset('panel')); ?>/assets/vendors/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="<?php echo e(asset('panel')); ?>/assets/vendors/css/vendor.bundle.base.css" />
+    <link rel="stylesheet" href="<?php echo e(asset('panel')); ?>/assets/vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="<?php echo e(asset('panel')); ?>/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="<?php echo e(asset('panel')); ?>/assets/css/style.css" />
+    <link rel="shortcut icon" href="<?php echo e(asset('panel')); ?>/assets/images/favicon.png" />
 </head>
 <body>
 <div class="container-scroller">
@@ -23,24 +23,24 @@
             <li class="nav-item nav-profile">
                 <a href="#" class="nav-link">
                     <div class="nav-profile-image">
-                        <img src="{{asset('panel')}}/assets/images/faces/face1.jpg" alt="profile" />
+                        <img src="<?php echo e(asset('panel')); ?>/assets/images/faces/face1.jpg" alt="profile" />
                         <span class="login-status online"></span>
                         <!--change to offline or busy as needed-->
                     </div>
                     <div class="nav-profile-text d-flex flex-column pr-3">
-                        <span class="font-weight-medium mb-2">{{ Auth::user()->name }}</span>
+                        <span class="font-weight-medium mb-2"><?php echo e(Auth::user()->name); ?></span>
                         <span class="font-weight-normal">Demo Paket</span>
                     </div>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/dashboard') }}">
+                <a class="nav-link" href="<?php echo e(url('/dashboard')); ?>">
                     <i class="mdi mdi-home menu-icon"></i>
                     <span class="menu-title">Anasayfa</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('fad.folder.index')}}">
+                <a class="nav-link" href="<?php echo e(route('fad.folder.index')); ?>">
                     <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                     <span class="menu-title">Veriler</span>
                 </a>
@@ -83,7 +83,7 @@
         </div>
         <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
             <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
-                <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="index.html"><img src="{{asset('panel')}}/assets/images/logo-mini.svg" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="index.html"><img src="<?php echo e(asset('panel')); ?>/assets/images/logo-mini.svg" alt="logo" /></a>
                 <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
                     <i class="mdi mdi-menu"></i>
                 </button>
@@ -97,7 +97,7 @@
                             <h6 class="p-3 mb-0">Notifications</h6>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="{{asset('panel')}}/assets/images/faces/face4.jpg" alt="" class="profile-pic" />
+                                    <img src="<?php echo e(asset('panel')); ?>/assets/images/faces/face4.jpg" alt="" class="profile-pic" />
                                 </div>
                                 <div class="preview-item-content">
                                     <p class="mb-0"> Dany Miles <span class="text-small text-muted">commented on your photo</span>
@@ -106,7 +106,7 @@
                             </a>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="{{asset('panel')}}/assets/images/faces/face3.jpg" alt="" class="profile-pic" />
+                                    <img src="<?php echo e(asset('panel')); ?>/assets/images/faces/face3.jpg" alt="" class="profile-pic" />
                                 </div>
                                 <div class="preview-item-content">
                                     <p class="mb-0"> James <span class="text-small text-muted">posted a photo on your wall</span>
@@ -115,7 +115,7 @@
                             </a>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="{{asset('panel')}}/assets/images/faces/face2.jpg" alt="" class="profile-pic" />
+                                    <img src="<?php echo e(asset('panel')); ?>/assets/images/faces/face2.jpg" alt="" class="profile-pic" />
                                 </div>
                                 <div class="preview-item-content">
                                     <p class="mb-0"> Alex <span class="text-small text-muted">just mentioned you in his post</span>
@@ -180,15 +180,15 @@
                     </li>
                     <li class="nav-item nav-profile dropdown border-0">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
-                            <img class="nav-profile-img mr-2" alt="" src="{{asset('panel')}}/assets/images/faces/face1.jpg" />
-                            <span class="profile-name">{{ Auth::user()->name }}</span>
+                            <img class="nav-profile-img mr-2" alt="" src="<?php echo e(asset('panel')); ?>/assets/images/faces/face1.jpg" />
+                            <span class="profile-name"><?php echo e(Auth::user()->name); ?></span>
                         </a>
                         <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="{{ route('profile.show') }}">
+                            <a class="dropdown-item" href="<?php echo e(route('profile.show')); ?>">
                                 <i class="mdi mdi-cached mr-2 text-success"></i> Profil </a>
-                            <form method="POST" action="{{ route('logout') }}" >
-                                @csrf
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                            <form method="POST" action="<?php echo e(route('logout')); ?>" >
+                                <?php echo csrf_field(); ?>
+                                <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                    onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                     <i class="mdi mdi-logout mr-2 text-primary"></i> Çıkış Yap </a>
@@ -208,13 +208,13 @@
                     </h3>
                     <button style="float: right" type="button" class="btn btn-primary btn-rounded btn-fw" data-toggle="modal" data-target="#exampleModalCenter"> + Yeni Klasör </button>
                 </div>
-                @if($errors->any())
+                <?php if($errors->any()): ?>
                     <div class="alert alert-danger" >
-                        @foreach($errors->all() as $err)
-                            <li>{{$err}}</li>
-                        @endforeach
+                        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $err): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li><?php echo e($err); ?></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
-                @endif
+                <?php endif; ?>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -226,9 +226,9 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="{{route('fad.folder.create')}}" method="post" role="form" enctype="multipart/form-data">
-                                @method('POST')
-                                @csrf
+                            <form action="<?php echo e(route('fad.folder.create')); ?>" method="post" role="form" enctype="multipart/form-data">
+                                <?php echo method_field('POST'); ?>
+                                <?php echo csrf_field(); ?>
                             <div class="modal-body">
                                     <div class="form-group">
                                         <label for="exampleInputName1">Dosya Adı:</label>
@@ -257,72 +257,72 @@
                             <h4 class="card-title">Klasörler</h4>
                             <p class="card-description">Klasörler oluşturarak içine veriler yükleyebilir. Düzenli bir akış oluşturabilirsin.</p>
                             <div class="row">
-                                @foreach($folders as $folder)
+                                <?php $__currentLoopData = $folders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $folder): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="col-xl-3 col-lg-3">
                                         <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">
-                                            <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">
+                                            <img class="card-img-top" src="<?php echo e(asset('panel')); ?>/assets/images/faces/dosya.png" alt="Card image cap">
                                             <div class="card-body">
-                                                <h5 class="card-title">{{$folder->name}}</h5>
-                                                <a href="{{route('fad.data.index',$folder->id)}}" methods="post" class="btn btn-success"> Dosyayı Aç</a>
-                                                <a href="{{route('fad.folder.delete',$folder->id)}}" class="btn btn-danger"> Sil</a>
+                                                <h5 class="card-title"><?php echo e($folder->name); ?></h5>
+                                                <a href="<?php echo e(route('fad.data.index',$folder->id)); ?>" methods="post" class="btn btn-success"> Dosyayı Aç</a>
+                                                <a href="<?php echo e(route('fad.folder.delete',$folder->id)); ?>" class="btn btn-danger"> Sil</a>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
-{{--                                <div class="col-xl-3 col-lg-3">--}}
-{{--                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">--}}
-{{--                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">--}}
-{{--                                        <div class="card-body">--}}
-{{--                                            <h5 class="card-title">Dosya Adı</h5>--}}
-{{--                                            <a href="{{route('fad.data.index')}}" type="button" class="btn btn-success"> Dosyayı Aç</a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-xl-3 col-lg-3">--}}
-{{--                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">--}}
-{{--                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">--}}
-{{--                                        <div class="card-body">--}}
-{{--                                            <h5 class="card-title">Dosya Adı</h5>--}}
-{{--                                            <a type="button" class="btn btn-success"> Dosyayı Aç</a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-xl-3 col-lg-3">--}}
-{{--                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">--}}
-{{--                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">--}}
-{{--                                        <div class="card-body">--}}
-{{--                                            <h5 class="card-title">Dosya Adı</h5>--}}
-{{--                                            <a type="button" class="btn btn-success"> Dosyayı Aç</a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-xl-3 col-lg-3">--}}
-{{--                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">--}}
-{{--                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">--}}
-{{--                                        <div class="card-body">--}}
-{{--                                            <h5 class="card-title">Dosya Adı</h5>--}}
-{{--                                            <a type="button" class="btn btn-success"> Dosyayı Aç</a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-xl-3 col-lg-3">--}}
-{{--                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">--}}
-{{--                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">--}}
-{{--                                        <div class="card-body">--}}
-{{--                                            <h5 class="card-title">Dosya Adı</h5>--}}
-{{--                                            <a type="button" class="btn btn-success"> Dosyayı Aç</a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-xl-3 col-lg-3">--}}
-{{--                                    <div class="card" style="width: 11rem;margin: 4rem;border: none !important;">--}}
-{{--                                        <img class="card-img-top" src="{{asset('panel')}}/assets/images/faces/dosya.png" alt="Card image cap">--}}
-{{--                                        <div class="card-body">--}}
-{{--                                            <h5 class="card-title">Dosya Adı</h5>--}}
-{{--                                           <a type="button" class="btn btn-success"> Dosyayı Aç</a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             </div>
 
                         </div>
@@ -348,25 +348,26 @@
         $('.exampleModalCenter').trigger('focus')
     })
 </script>
-<script src="{{asset('panel')}}/assets/vendors/js/vendor.bundle.base.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
 <!-- Plugin js for this page -->
-<script src="{{asset('panel')}}/assets/vendors/chart.js/Chart.min.js"></script>
-<script src="{{asset('panel')}}/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-<script src="{{asset('panel')}}/assets/vendors/flot/jquery.flot.js"></script>
-<script src="{{asset('panel')}}/assets/vendors/flot/jquery.flot.resize.js"></script>
-<script src="{{asset('panel')}}/assets/vendors/flot/jquery.flot.categories.js"></script>
-<script src="{{asset('panel')}}/assets/vendors/flot/jquery.flot.fillbetween.js"></script>
-<script src="{{asset('panel')}}/assets/vendors/flot/jquery.flot.stack.js"></script>
-<script src="{{asset('panel')}}/assets/vendors/flot/jquery.flot.pie.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/vendors/chart.js/Chart.min.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/vendors/flot/jquery.flot.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/vendors/flot/jquery.flot.resize.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/vendors/flot/jquery.flot.categories.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/vendors/flot/jquery.flot.fillbetween.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/vendors/flot/jquery.flot.stack.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/vendors/flot/jquery.flot.pie.js"></script>
 <!-- End plugin js for this page -->
 <!-- inject:js -->
-<script src="{{asset('panel')}}/assets/js/off-canvas.js"></script>
-<script src="{{asset('panel')}}/assets/js/hoverable-collapse.js"></script>
-<script src="{{asset('panel')}}/assets/js/misc.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/js/off-canvas.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/js/hoverable-collapse.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/js/misc.js"></script>
 <!-- endinject -->
 <!-- Custom js for this page -->
-<script src="{{asset('panel')}}/assets/js/dashboard.js"></script>
+<script src="<?php echo e(asset('panel')); ?>/assets/js/dashboard.js"></script>
 <!-- End custom js for this page -->
 </body>
 </html>
+<?php /**PATH C:\Users\PC\Documents\Github\bulut_depolama\resources\views/fad/folder/index.blade.php ENDPATH**/ ?>
